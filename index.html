@@ -24,7 +24,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html,body{height:100%;background:var(--app-bg);overscroll-behavior:none;}
-  body{font-family:'IBM Plex Sans KR',sans-serif;color:var(--text-main);max-width:480px;margin:0 auto;padding-bottom:calc(88px + var(--safe-bottom)); + var(--safe-bottom));}
+  body{font-family:'IBM Plex Sans KR',sans-serif;color:var(--text-main);max-width:480px;margin:0 auto;padding-bottom:calc(120px + var(--safe-bottom));+ var(--safe-bottom)); + var(--safe-bottom));}
 
   /* Header */
   .header{background:var(--primary);padding:calc(16px + var(--safe-top)) 20px 14px;position:sticky;top:0;z-index:100;}
@@ -138,7 +138,7 @@
   .modal-cancel{padding:13px;border-radius:12px;font-size:14px;font-weight:600;border:1px solid var(--border);cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;background:var(--card-bg);color:var(--text-sub);}
 
   /* Bottom Nav */
-  .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--card-bg);border-top:.5px solid var(--border);display:flex;justify-content:space-around;padding:8px 0 calc(8px + var(--safe-bottom));z-index:100;}
+  .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--card-bg);border-top:.5px solid var(--border);display:flex;justify-content:space-around;padding:8px 0 calc(30px + var(--safe-bottom));z-index:100;}
   .nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px 16px;}
   .nav-icon{font-size:22px;}
   .nav-label{font-size:10px;font-weight:500;color:var(--text-hint);}
@@ -152,7 +152,7 @@
   .loading-text{font-size:13px;color:var(--text-sub);font-weight:500;}
 
   /* Toast */
-  .toast{position:fixed;bottom:calc(80px + var(--safe-bottom));left:50%;transform:translateX(-50%) translateY(16px);background:var(--primary);color:#fff;padding:10px 20px;border-radius:24px;font-size:13px;font-weight:500;opacity:0;transition:all .28s;z-index:300;white-space:nowrap;pointer-events:none;}
+  .toast{position:fixed;bottom:calc(120px + var(--safe-bottom));left:50%;transform:translateX(-50%) translateY(16px);background:var(--primary);color:#fff;padding:10px 20px;border-radius:24px;font-size:13px;font-weight:500;opacity:0;transition:all .28s;z-index:300;white-space:nowrap;pointer-events:none;}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
   .page{display:none;}.page.active{display:block;}
