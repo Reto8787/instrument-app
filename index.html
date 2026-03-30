@@ -19,146 +19,160 @@
     --success:#1D9E75;--warning:#BA7517;--danger:#A32D2D;
     --text-main:#1C1C1E;--text-sub:#6B6B70;--text-hint:#AEAEB2;
     --border:rgba(0,0,0,0.09);--radius:14px;--radius-sm:8px;
-    --safe-top: env(safe-area-inset-top, 0px);
-    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-top:env(safe-area-inset-top,0px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
   }
-  * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
-  html, body { height:100%; background:var(--app-bg); overscroll-behavior:none; }
-  body {
-    font-family:'IBM Plex Sans KR', sans-serif;
-    color:var(--text-main);
-    max-width:480px;
-    margin:0 auto;
-    padding-bottom: calc(64px + var(--safe-bottom));
-  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;background:var(--app-bg);overscroll-behavior:none;}
+  body{font-family:'IBM Plex Sans KR',sans-serif;color:var(--text-main);max-width:480px;margin:0 auto;padding-bottom:calc(64px + var(--safe-bottom));}
 
-  /* ── Header ── */
-  .header {
-    background:var(--primary);
-    padding: calc(16px + var(--safe-top)) 20px 14px;
-    position:sticky; top:0; z-index:100;
-  }
-  .header-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
-  .header-logo { font-size:11px; font-weight:600; color:rgba(255,255,255,0.55); letter-spacing:.1em; }
-  .header-title { font-size:19px; font-weight:600; color:#fff; letter-spacing:-.02em; }
-  .header-date { font-size:11px; font-family:'IBM Plex Mono',monospace; color:rgba(255,255,255,0.6); background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:20px; padding:4px 10px; }
-  .search-bar { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); border-radius:10px; padding:9px 13px; display:flex; align-items:center; gap:8px; }
-  .search-bar input { background:transparent; border:none; outline:none; color:#fff; font-size:14px; font-family:'IBM Plex Sans KR',sans-serif; width:100%; }
-  .search-bar input::placeholder { color:rgba(255,255,255,0.4); }
+  /* Header */
+  .header{background:var(--primary);padding:calc(16px + var(--safe-top)) 20px 14px;position:sticky;top:0;z-index:100;}
+  .header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+  .header-logo{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);letter-spacing:.1em;}
+  .header-title{font-size:19px;font-weight:600;color:#fff;letter-spacing:-.02em;}
+  .header-date{font-size:11px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:20px;padding:4px 10px;}
+  .search-bar{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:9px 13px;display:flex;align-items:center;gap:8px;}
+  .search-bar input{background:transparent;border:none;outline:none;color:#fff;font-size:14px;font-family:'IBM Plex Sans KR',sans-serif;width:100%;}
+  .search-bar input::placeholder{color:rgba(255,255,255,0.4);}
 
-  /* ── Stats ── */
-  .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:14px 16px 0; }
-  .stat-card { background:var(--card-bg); border-radius:var(--radius-sm); padding:12px 8px; text-align:center; border:.5px solid var(--border); }
-  .stat-num { font-size:24px; font-weight:600; font-family:'IBM Plex Mono',monospace; line-height:1; margin-bottom:3px; }
-  .stat-num.blue{color:var(--accent);} .stat-num.green{color:var(--success);} .stat-num.red{color:var(--danger);}
-  .stat-label { font-size:11px; color:var(--text-sub); font-weight:500; }
+  /* Sync bar */
+  .sync-bar{background:#E6F1FB;border-bottom:1px solid #B5D4F4;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#185FA5;font-weight:500;}
+  .sync-btn{padding:4px 12px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;}
+  .sync-bar.error{background:#FCEBEB;border-color:#F09595;color:#A32D2D;}
+  .sync-bar.ok{background:#EAF3DE;border-color:#C0DD97;color:#3B6D11;}
 
-  /* ── Banner ── */
-  .overdue-banner { margin:10px 16px 0; background:#FCEBEB; border:1px solid #F09595; border-radius:var(--radius-sm); padding:10px 14px; font-size:12px; color:#A32D2D; font-weight:500; display:none; }
+  /* Stats */
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px 16px 0;}
+  .stat-card{background:var(--card-bg);border-radius:var(--radius-sm);padding:12px 8px;text-align:center;border:.5px solid var(--border);}
+  .stat-num{font-size:24px;font-weight:600;font-family:'IBM Plex Mono',monospace;line-height:1;margin-bottom:3px;}
+  .stat-num.blue{color:var(--accent);}.stat-num.green{color:var(--success);}.stat-num.red{color:var(--danger);}
+  .stat-label{font-size:11px;color:var(--text-sub);font-weight:500;}
+  .overdue-banner{margin:10px 16px 0;background:#FCEBEB;border:1px solid #F09595;border-radius:var(--radius-sm);padding:10px 14px;font-size:12px;color:#A32D2D;font-weight:500;display:none;}
 
-  /* ── Tabs ── */
-  .filter-tabs { display:flex; gap:6px; padding:12px 16px 8px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
-  .filter-tabs::-webkit-scrollbar { display:none; }
-  .tab-btn { padding:6px 14px; border-radius:20px; font-size:12px; font-weight:500; border:1px solid var(--border); background:var(--card-bg); color:var(--text-sub); cursor:pointer; white-space:nowrap; font-family:'IBM Plex Sans KR',sans-serif; }
-  .tab-btn.active { background:var(--primary); color:#fff; border-color:var(--primary); }
+  /* Tabs */
+  .filter-tabs{display:flex;gap:6px;padding:12px 16px 8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .filter-tabs::-webkit-scrollbar{display:none;}
+  .tab-btn{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid var(--border);background:var(--card-bg);color:var(--text-sub);cursor:pointer;white-space:nowrap;font-family:'IBM Plex Sans KR',sans-serif;}
+  .tab-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .section-label{padding:2px 16px 7px;font-size:11px;font-weight:600;color:var(--text-hint);letter-spacing:.07em;text-transform:uppercase;}
 
-  .section-label { padding:2px 16px 7px; font-size:11px; font-weight:600; color:var(--text-hint); letter-spacing:.07em; text-transform:uppercase; }
-
-  /* ── Equipment List ── */
-  .eq-list { padding:0 16px; display:flex; flex-direction:column; gap:8px; }
-  .eq-card { background:var(--card-bg); border-radius:var(--radius); padding:13px 15px; border:.5px solid var(--border); }
-  .eq-card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; }
-  .eq-cat { font-size:10px; font-weight:600; color:var(--text-hint); letter-spacing:.06em; text-transform:uppercase; margin-bottom:2px; }
-  .eq-name { font-size:14px; font-weight:600; color:var(--text-main); line-height:1.25; }
-  .eq-code { font-size:11px; font-family:'IBM Plex Mono',monospace; color:var(--text-hint); margin-top:1px; }
-  .status-badge { display:inline-flex; align-items:center; gap:5px; padding:4px 10px; border-radius:20px; font-size:11px; font-weight:600; white-space:nowrap; flex-shrink:0; }
+  /* Cards */
+  .eq-list{padding:0 16px;display:flex;flex-direction:column;gap:8px;}
+  .eq-card{background:var(--card-bg);border-radius:var(--radius);padding:13px 15px;border:.5px solid var(--border);}
+  .eq-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+  .eq-cat{font-size:10px;font-weight:600;color:var(--text-hint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px;}
+  .eq-name{font-size:14px;font-weight:600;color:var(--text-main);line-height:1.25;}
+  .eq-code{font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--text-hint);margin-top:1px;}
+  .status-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;white-space:nowrap;flex-shrink:0;}
   .status-badge.available{background:#EAF3DE;color:#3B6D11;}
   .status-badge.borrowed{background:#E6F1FB;color:#185FA5;}
   .status-badge.overdue{background:#FCEBEB;color:#A32D2D;}
-  .status-dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
-  .eq-card-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:9px; border-top:.5px solid var(--border); }
-  .eq-info-row { display:flex; gap:12px; }
-  .eq-info-item { font-size:11px; color:var(--text-sub); }
-  .eq-info-item span { font-weight:600; color:var(--text-main); }
-  .action-btn { padding:6px 13px; border-radius:8px; font-size:12px; font-weight:600; border:none; cursor:pointer; font-family:'IBM Plex Sans KR',sans-serif; }
+  .status-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+  .eq-card-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:9px;border-top:.5px solid var(--border);}
+  .eq-info-row{display:flex;gap:12px;}
+  .eq-info-item{font-size:11px;color:var(--text-sub);}
+  .eq-info-item span{font-weight:600;color:var(--text-main);}
+  .action-btn{padding:6px 13px;border-radius:8px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;}
   .btn-borrow{background:var(--accent);color:#fff;}
   .btn-return{background:#EAF3DE;color:#3B6D11;}
   .btn-overdue{background:#FCEBEB;color:#A32D2D;}
+  .btn-edit{background:var(--app-bg);color:var(--text-sub);border:1px solid var(--border)!important;margin-right:4px;}
 
-  /* ── History ── */
-  .hist-summary { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
-  .hist-sum-item { background:var(--card-bg); border:.5px solid var(--border); border-radius:var(--radius-sm); padding:10px; text-align:center; }
-  .hist-sum-num { font-size:20px; font-weight:600; font-family:'IBM Plex Mono',monospace; color:var(--accent); }
-  .hist-sum-label { font-size:10px; color:var(--text-sub); font-weight:500; margin-top:2px; }
-  .hist-filter-row { display:flex; gap:7px; margin-bottom:10px; flex-wrap:wrap; }
-  .hist-filter-select { flex:1; padding:8px 9px; border:1px solid var(--border); border-radius:var(--radius-sm); font-size:12px; font-family:'IBM Plex Sans KR',sans-serif; background:var(--card-bg); color:var(--text-main); outline:none; min-width:100px; }
-  .hist-card { background:var(--card-bg); border-radius:var(--radius); border:.5px solid var(--border); margin-bottom:8px; overflow:hidden; }
-  .hist-card-head { padding:12px 14px 10px; display:flex; justify-content:space-between; align-items:flex-start; border-bottom:.5px solid var(--border); }
-  .hist-eq-name { font-size:14px; font-weight:600; color:var(--text-main); }
-  .hist-eq-code { font-size:11px; font-family:'IBM Plex Mono',monospace; color:var(--text-hint); margin-top:1px; }
-  .hist-outcome { padding:3px 9px; border-radius:12px; font-size:11px; font-weight:600; flex-shrink:0; }
+  /* History */
+  .hist-page-inner{padding:14px 16px 0;}
+  .hist-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
+  .hist-sum-item{background:var(--card-bg);border:.5px solid var(--border);border-radius:var(--radius-sm);padding:10px;text-align:center;}
+  .hist-sum-num{font-size:20px;font-weight:600;font-family:'IBM Plex Mono',monospace;color:var(--accent);}
+  .hist-sum-label{font-size:10px;color:var(--text-sub);font-weight:500;margin-top:2px;}
+  .hist-filter-row{display:flex;gap:7px;margin-bottom:10px;flex-wrap:wrap;}
+  .hist-filter-select{flex:1;padding:8px 9px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:'IBM Plex Sans KR',sans-serif;background:var(--card-bg);color:var(--text-main);outline:none;min-width:100px;}
+  .hist-card{background:var(--card-bg);border-radius:var(--radius);border:.5px solid var(--border);margin-bottom:8px;overflow:hidden;}
+  .hist-card-head{padding:12px 14px 10px;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:.5px solid var(--border);}
+  .hist-eq-name{font-size:14px;font-weight:600;color:var(--text-main);}
+  .hist-eq-code{font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--text-hint);margin-top:1px;}
+  .hist-outcome{padding:3px 9px;border-radius:12px;font-size:11px;font-weight:600;flex-shrink:0;}
   .hist-outcome.normal{background:#EAF3DE;color:#3B6D11;}
   .hist-outcome.late{background:#FCEBEB;color:#A32D2D;}
   .hist-outcome.damage{background:#FAEEDA;color:#854F0B;}
   .hist-outcome.borrowed{background:#E6F1FB;color:#185FA5;}
-  .hist-rows { padding:10px 14px; display:flex; flex-direction:column; gap:6px; }
-  .hist-row { display:flex; justify-content:space-between; align-items:center; }
-  .hist-row-label { font-size:11px; color:var(--text-sub); font-weight:500; }
-  .hist-row-val { font-size:12px; font-weight:600; color:var(--text-main); font-family:'IBM Plex Mono',monospace; }
-  .hist-row-val.person { font-family:'IBM Plex Sans KR',sans-serif; }
-  .hist-timeline { padding:8px 14px 12px; display:flex; align-items:center; }
-  .tl-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); flex-shrink:0; }
-  .tl-dot.end{background:var(--success);}
-  .tl-dot.late-end{background:var(--danger);}
-  .tl-dot.pending{background:var(--text-hint);}
-  .tl-line { flex:1; height:2px; background:var(--border); }
-  .tl-wrap { display:flex; flex-direction:column; align-items:center; gap:3px; }
-  .tl-label { font-size:10px; color:var(--text-sub); }
+  .hist-rows{padding:10px 14px;display:flex;flex-direction:column;gap:6px;}
+  .hist-row{display:flex;justify-content:space-between;align-items:center;}
+  .hist-row-label{font-size:11px;color:var(--text-sub);font-weight:500;}
+  .hist-row-val{font-size:12px;font-weight:600;color:var(--text-main);font-family:'IBM Plex Mono',monospace;}
+  .hist-row-val.person{font-family:'IBM Plex Sans KR',sans-serif;}
+  .hist-timeline{padding:8px 14px 12px;display:flex;align-items:center;}
+  .tl-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+  .tl-dot.end{background:var(--success);}.tl-dot.late-end{background:var(--danger);}.tl-dot.pending{background:var(--text-hint);}
+  .tl-line{flex:1;height:2px;background:var(--border);}
+  .tl-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .tl-label{font-size:10px;color:var(--text-sub);}
 
-  /* ── Modal ── */
-  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:200; align-items:flex-end; justify-content:center; }
-  .modal-overlay.show { display:flex; }
-  .modal-sheet { background:var(--card-bg); border-radius:20px 20px 0 0; padding:20px 20px calc(24px + var(--safe-bottom)); width:100%; max-width:480px; }
-  .modal-handle { width:36px; height:4px; background:var(--border); border-radius:2px; margin:0 auto 18px; }
-  .modal-title { font-size:17px; font-weight:600; margin-bottom:3px; }
-  .modal-subtitle { font-size:12px; color:var(--text-sub); font-family:'IBM Plex Mono',monospace; margin-bottom:18px; }
-  .modal-field { margin-bottom:13px; }
-  .modal-field label { display:block; font-size:11px; font-weight:600; color:var(--text-sub); letter-spacing:.06em; text-transform:uppercase; margin-bottom:5px; }
-  .modal-field input, .modal-field select { width:100%; padding:11px 12px; border:1px solid var(--border); border-radius:var(--radius-sm); font-size:14px; font-family:'IBM Plex Sans KR',sans-serif; background:var(--app-bg); color:var(--text-main); outline:none; }
-  .modal-field input:focus, .modal-field select:focus { border-color:var(--accent); }
-  .modal-btn-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; }
-  .modal-confirm { padding:13px; border-radius:12px; font-size:14px; font-weight:600; border:none; cursor:pointer; font-family:'IBM Plex Sans KR',sans-serif; background:var(--accent); color:#fff; }
-  .modal-cancel { padding:13px; border-radius:12px; font-size:14px; font-weight:600; border:1px solid var(--border); cursor:pointer; font-family:'IBM Plex Sans KR',sans-serif; background:var(--card-bg); color:var(--text-sub); }
+  /* 장비관리 탭 */
+  .mgmt-page-inner{padding:14px 16px 0;}
+  .mgmt-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+  .mgmt-title{font-size:13px;font-weight:600;color:var(--text-sub);}
+  .add-btn{padding:8px 16px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;}
+  .mgmt-card{background:var(--card-bg);border-radius:var(--radius);border:.5px solid var(--border);padding:13px 15px;margin-bottom:8px;}
+  .mgmt-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+  .mgmt-actions{display:flex;gap:6px;}
+  .mgmt-edit-btn{padding:5px 12px;background:var(--app-bg);border:1px solid var(--border);border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;color:var(--text-sub);}
+  .mgmt-del-btn{padding:5px 12px;background:#FCEBEB;border:1px solid #F09595;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;color:#A32D2D;}
+  .mgmt-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .mgmt-item{font-size:11px;color:var(--text-sub);}
+  .mgmt-item span{font-weight:600;color:var(--text-main);}
 
-  /* ── Bottom Nav ── */
-  .bottom-nav {
-    position:fixed; bottom:0; left:50%; transform:translateX(-50%);
-    width:100%; max-width:480px;
-    background:var(--card-bg); border-top:.5px solid var(--border);
-    display:flex; justify-content:space-around;
-    padding: 8px 0 calc(8px + var(--safe-bottom));
-    z-index:100;
-  }
-  .nav-item { display:flex; flex-direction:column; align-items:center; gap:3px; cursor:pointer; padding:4px 20px; }
-  .nav-icon { font-size:22px; }
-  .nav-label { font-size:10px; font-weight:500; color:var(--text-hint); }
-  .nav-item.active .nav-label { color:var(--accent); }
+  /* Modal */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:flex-end;justify-content:center;}
+  .modal-overlay.show{display:flex;}
+  .modal-sheet{background:var(--card-bg);border-radius:20px 20px 0 0;padding:20px 20px calc(24px + var(--safe-bottom));width:100%;max-width:480px;}
+  .modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 18px;}
+  .modal-title{font-size:17px;font-weight:600;margin-bottom:3px;}
+  .modal-subtitle{font-size:12px;color:var(--text-sub);font-family:'IBM Plex Mono',monospace;margin-bottom:18px;}
+  .modal-field{margin-bottom:13px;}
+  .modal-field label{display:block;font-size:11px;font-weight:600;color:var(--text-sub);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;}
+  .modal-field input,.modal-field select{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:'IBM Plex Sans KR',sans-serif;background:var(--app-bg);color:var(--text-main);outline:none;}
+  .modal-field input:focus,.modal-field select:focus{border-color:var(--accent);}
+  .modal-btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+  .modal-confirm{padding:13px;border-radius:12px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;background:var(--accent);color:#fff;}
+  .modal-cancel{padding:13px;border-radius:12px;font-size:14px;font-weight:600;border:1px solid var(--border);cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;background:var(--card-bg);color:var(--text-sub);}
 
-  /* ── Toast ── */
-  .toast { position:fixed; bottom:calc(80px + var(--safe-bottom)); left:50%; transform:translateX(-50%) translateY(16px); background:var(--primary); color:#fff; padding:10px 20px; border-radius:24px; font-size:13px; font-weight:500; opacity:0; transition:all .28s; z-index:300; white-space:nowrap; pointer-events:none; }
-  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  /* Bottom Nav */
+  .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--card-bg);border-top:.5px solid var(--border);display:flex;justify-content:space-around;padding:8px 0 calc(8px + var(--safe-bottom));z-index:100;}
+  .nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px 16px;}
+  .nav-icon{font-size:22px;}
+  .nav-label{font-size:10px;font-weight:500;color:var(--text-hint);}
+  .nav-item.active .nav-label{color:var(--accent);}
 
-  /* ── Page ── */
-  .page { display:none; } .page.active { display:block; }
-  .hist-page-inner { padding:14px 16px 0; }
+  /* Loading */
+  .loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,0.85);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:12px;}
+  .loading-overlay.show{display:flex;}
+  .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .loading-text{font-size:13px;color:var(--text-sub);font-weight:500;}
 
-  /* ── Install Banner ── */
-  .install-banner { margin:10px 16px 0; background:#E6F1FB; border:1px solid #B5D4F4; border-radius:var(--radius-sm); padding:10px 14px; display:flex; align-items:center; justify-content:space-between; font-size:12px; color:#185FA5; font-weight:500; }
-  .install-btn { padding:5px 12px; background:var(--accent); color:#fff; border:none; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; font-family:'IBM Plex Sans KR',sans-serif; }
+  /* Toast */
+  .toast{position:fixed;bottom:calc(80px + var(--safe-bottom));left:50%;transform:translateX(-50%) translateY(16px);background:var(--primary);color:#fff;padding:10px 20px;border-radius:24px;font-size:13px;font-weight:500;opacity:0;transition:all .28s;z-index:300;white-space:nowrap;pointer-events:none;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .page{display:none;}.page.active{display:block;}
+
+  /* Config 탭 */
+  .config-inner{padding:20px 16px;}
+  .config-card{background:var(--card-bg);border-radius:var(--radius);border:.5px solid var(--border);padding:16px;margin-bottom:12px;}
+  .config-card h3{font-size:14px;font-weight:600;margin-bottom:12px;color:var(--text-main);}
+  .config-field{margin-bottom:12px;}
+  .config-field label{display:block;font-size:11px;font-weight:600;color:var(--text-sub);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;}
+  .config-field input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:'IBM Plex Mono',monospace;background:var(--app-bg);color:var(--text-main);outline:none;}
+  .config-field input:focus{border-color:var(--accent);}
+  .config-save-btn{width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans KR',sans-serif;}
+  .config-info{font-size:11px;color:var(--text-sub);line-height:1.6;margin-top:8px;}
+  .config-info a{color:var(--accent);}
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <div class="header">
   <div class="header-top">
     <div>
@@ -173,10 +187,10 @@
   </div>
 </div>
 
-<!-- PWA Install Banner -->
-<div class="install-banner" id="install-banner" style="display:none;">
-  📱 홈 화면에 앱으로 추가하세요
-  <button class="install-btn" id="install-btn">설치</button>
+<!-- Sync Status Bar -->
+<div class="sync-bar" id="sync-bar">
+  <span id="sync-msg">⏳ Google Sheets 연결 중...</span>
+  <button class="sync-btn" onclick="loadData()">새로고침</button>
 </div>
 
 <!-- PAGE: 대여현황 -->
@@ -186,8 +200,8 @@
     <div class="stat-card"><div class="stat-num green" id="stat-avail">0</div><div class="stat-label">사용 가능</div></div>
     <div class="stat-card"><div class="stat-num red" id="stat-borrow">0</div><div class="stat-label">대여 중</div></div>
   </div>
-  <div class="overdue-banner" id="overdue-banner">⚠ 반납 지연 장비가 있습니다. 즉시 확인하세요.</div>
-  <div class="filter-tabs" id="filter-tabs">
+  <div class="overdue-banner" id="overdue-banner">⚠ 반납 지연 장비가 있습니다.</div>
+  <div class="filter-tabs">
     <button class="tab-btn active" onclick="setFilter('all',this)">전체</button>
     <button class="tab-btn" onclick="setFilter('available',this)">사용 가능</button>
     <button class="tab-btn" onclick="setFilter('borrowed',this)">대여 중</button>
@@ -223,6 +237,47 @@
   <div style="padding:0 16px;" id="hist-list"></div>
 </div>
 
+<!-- PAGE: 장비관리 (PC에서 편하게) -->
+<div class="page" id="page-mgmt">
+  <div class="mgmt-page-inner">
+    <div class="mgmt-toolbar">
+      <div class="mgmt-title" id="mgmt-count"></div>
+      <button class="add-btn" onclick="openAddEquip()">+ 장비 등록</button>
+    </div>
+    <div id="mgmt-list"></div>
+  </div>
+</div>
+
+<!-- PAGE: 설정 -->
+<div class="page" id="page-config">
+  <div class="config-inner">
+    <div class="config-card">
+      <h3>🔗 Google Sheets 연동 설정</h3>
+      <div class="config-field">
+        <label>Apps Script URL</label>
+        <input type="text" id="cfg-url" placeholder="https://script.google.com/macros/s/.../exec">
+      </div>
+      <button class="config-save-btn" onclick="saveConfig()">저장 및 연결 테스트</button>
+      <div class="config-info" style="margin-top:12px;">
+        Apps Script URL 발급 방법은 README를 참고하세요.<br>
+        URL 저장 후 데이터가 자동으로 Google Sheets와 동기화됩니다.
+      </div>
+    </div>
+    <div class="config-card">
+      <h3>📤 데이터 내보내기</h3>
+      <button class="config-save-btn" style="background:var(--success);" onclick="exportCSV()">CSV 파일 저장</button>
+    </div>
+    <div class="config-card">
+      <h3>ℹ 앱 정보</h3>
+      <div class="config-info">
+        SE&amp;Company 계측기실 대여 현황 v2.0<br>
+        Google Sheets 연동 버전<br>
+        전 직원 실시간 데이터 공유 지원
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Bottom Nav -->
 <nav class="bottom-nav">
   <div class="nav-item active" id="nav-status" onclick="switchPage('status')">
@@ -233,13 +288,13 @@
     <div class="nav-icon">🕐</div>
     <div class="nav-label" id="nl-history">이력 조회</div>
   </div>
-  <div class="nav-item" id="nav-add" onclick="openAddEquip()">
-    <div class="nav-icon">➕</div>
-    <div class="nav-label">장비 등록</div>
+  <div class="nav-item" id="nav-mgmt" onclick="switchPage('mgmt')">
+    <div class="nav-icon">🗂️</div>
+    <div class="nav-label" id="nl-mgmt">장비관리</div>
   </div>
-  <div class="nav-item" onclick="exportCSV()">
-    <div class="nav-icon">📤</div>
-    <div class="nav-label">내보내기</div>
+  <div class="nav-item" id="nav-config" onclick="switchPage('config')">
+    <div class="nav-icon">⚙️</div>
+    <div class="nav-label" id="nl-config">설정</div>
   </div>
 </nav>
 
@@ -257,73 +312,101 @@
   </div>
 </div>
 
+<!-- Loading -->
+<div class="loading-overlay" id="loading">
+  <div class="spinner"></div>
+  <div class="loading-text" id="loading-text">처리 중...</div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-// ── PWA Service Worker ──
+// ── PWA ──────────────────────────────────────────────────────────
 if('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
 }
 
-// ── PWA Install Prompt ──
-let deferredPrompt = null;
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('install-banner').style.display = 'flex';
-});
-document.getElementById('install-btn').addEventListener('click', async () => {
-  if(deferredPrompt) {
-    deferredPrompt.prompt();
-    const result = await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    document.getElementById('install-banner').style.display = 'none';
-  }
-});
-window.addEventListener('appinstalled', () => {
-  document.getElementById('install-banner').style.display = 'none';
-});
-
-// ── Date ──
+// ── 날짜 ─────────────────────────────────────────────────────────
 const today = new Date();
-document.getElementById('today-date').textContent = today.toLocaleDateString('ko-KR',{month:'short',day:'numeric',weekday:'short'});
+document.getElementById('today-date').textContent =
+  today.toLocaleDateString('ko-KR',{month:'short',day:'numeric',weekday:'short'});
 
-// ── Data (localStorage persistent) ──
-const STORE_KEY_EQ = 'se_instruments';
-const STORE_KEY_HIST = 'se_instrument_history';
+// ── 설정 (Apps Script URL) ────────────────────────────────────────
+const CFG_KEY = 'se_apps_script_url';
+let SCRIPT_URL = localStorage.getItem(CFG_KEY) || '';
 
-const defaultEquipments = [
-  {id:1,name:'버니어 캘리퍼스 300mm',code:'MC-VC-001',cat:'버니어 캘리퍼스',status:'available',borrower:'',dept:'',dueDate:'',calDate:'2025-08'},
-  {id:2,name:'버니어 캘리퍼스 150mm',code:'MC-VC-002',cat:'버니어 캘리퍼스',status:'borrowed',borrower:'김철수',dept:'품질팀',dueDate:'2026-03-28',calDate:'2025-06'},
-  {id:3,name:'외측 마이크로미터 0-25mm',code:'MC-OM-001',cat:'마이크로미터',status:'available',borrower:'',dept:'',dueDate:'',calDate:'2025-09'},
-  {id:4,name:'외측 마이크로미터 25-50mm',code:'MC-OM-002',cat:'마이크로미터',status:'overdue',borrower:'이영희',dept:'제조팀',dueDate:'2026-03-20',calDate:'2025-09'},
-  {id:5,name:'다이얼 게이지 0.01mm',code:'MC-DG-001',cat:'Gauge',status:'available',borrower:'',dept:'',dueDate:'',calDate:'2025-11'},
-  {id:6,name:'한계 게이지 φ50',code:'MC-LG-001',cat:'Gauge',status:'borrowed',borrower:'박민준',dept:'품질팀',dueDate:'2026-04-02',calDate:'2025-10'},
-  {id:7,name:'하이트 게이지 300mm',code:'MC-HG-001',cat:'Gauge',status:'available',borrower:'',dept:'',dueDate:'',calDate:'2025-07'},
-  {id:8,name:'나사 피치 게이지',code:'MC-PG-001',cat:'Gauge',status:'borrowed',borrower:'최지원',dept:'생산팀',dueDate:'2026-03-31',calDate:'2025-12'},
-  {id:9,name:'토크 렌치 100N·m',code:'MC-TW-001',cat:'기타',status:'available',borrower:'',dept:'',dueDate:'',calDate:'2026-01'},
-  {id:10,name:'서피스 게이지',code:'MC-SG-001',cat:'Gauge',status:'overdue',borrower:'한상호',dept:'제조팀',dueDate:'2026-03-22',calDate:'2025-08'},
-];
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('cfg-url').value = SCRIPT_URL;
+});
 
-const defaultHistory = [
-  {id:101,eqId:1,eqName:'버니어 캘리퍼스 300mm',code:'MC-VC-001',borrower:'홍길동',dept:'품질팀',borrowDate:'2026-03-01',returnDate:'2026-03-05',dueDate:'2026-03-05',outcome:'normal',condition:'정상'},
-  {id:102,eqId:3,eqName:'외측 마이크로미터 0-25mm',code:'MC-OM-001',borrower:'정다은',dept:'생산팀',borrowDate:'2026-02-10',returnDate:'2026-02-18',dueDate:'2026-02-15',outcome:'late',condition:'정상'},
-  {id:103,eqId:5,eqName:'다이얼 게이지 0.01mm',code:'MC-DG-001',borrower:'이재원',dept:'제조팀',borrowDate:'2026-02-01',returnDate:'2026-02-08',dueDate:'2026-02-08',outcome:'normal',condition:'정상'},
-  {id:104,eqId:7,eqName:'하이트 게이지 300mm',code:'MC-HG-001',borrower:'박소현',dept:'품질팀',borrowDate:'2026-01-15',returnDate:'2026-01-22',dueDate:'2026-01-20',outcome:'late',condition:'손상'},
-  {id:105,eqId:9,eqName:'토크 렌치 100N·m',code:'MC-TW-001',borrower:'김민수',dept:'생산팀',borrowDate:'2026-03-05',returnDate:'2026-03-10',dueDate:'2026-03-10',outcome:'normal',condition:'정상'},
-  {id:106,eqId:1,eqName:'버니어 캘리퍼스 300mm',code:'MC-VC-001',borrower:'최영환',dept:'제조팀',borrowDate:'2026-01-20',returnDate:'2026-01-25',dueDate:'2026-01-25',outcome:'normal',condition:'정상'},
-];
+function saveConfig() {
+  const url = document.getElementById('cfg-url').value.trim();
+  if (!url) { alert('URL을 입력하세요.'); return; }
+  SCRIPT_URL = url;
+  localStorage.setItem(CFG_KEY, url);
+  showToast('✓ 저장 완료. 데이터 불러오는 중...');
+  loadData();
+}
 
-let equipments = JSON.parse(localStorage.getItem(STORE_KEY_EQ)) || defaultEquipments;
-let history = JSON.parse(localStorage.getItem(STORE_KEY_HIST)) || defaultHistory;
+// ── 데이터 ───────────────────────────────────────────────────────
+let equipments = [];
+let historyData = [];
 
-function saveEq() { localStorage.setItem(STORE_KEY_EQ, JSON.stringify(equipments)); }
-function saveHist() { localStorage.setItem(STORE_KEY_HIST, JSON.stringify(history)); }
+async function loadData() {
+  if (!SCRIPT_URL) {
+    setSyncBar('warning', '⚙ 설정 탭에서 Apps Script URL을 먼저 입력하세요.');
+    return;
+  }
+  setSyncBar('loading', '⏳ Google Sheets 데이터 불러오는 중...');
+  try {
+    const res = await fetch(SCRIPT_URL + '?action=getAll');
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    equipments  = data.equipments  || [];
+    historyData = data.history     || [];
+    // 지연 상태 자동 보정
+    equipments.forEach(e => {
+      if (e.status === 'borrowed' && e.dueDate && new Date(e.dueDate) < today) {
+        e.status = 'overdue';
+      }
+    });
+    setSyncBar('ok', '✓ ' + new Date().toLocaleTimeString('ko-KR') + ' 동기화 완료');
+    updateStats(); renderList(); renderMgmt(); renderHistory();
+  } catch(err) {
+    setSyncBar('error', '❌ 연결 실패: ' + err.message);
+  }
+}
 
-// ── Page switch ──
+function setSyncBar(type, msg) {
+  const bar = document.getElementById('sync-bar');
+  bar.className = 'sync-bar' + (type !== 'loading' ? ' ' + type : '');
+  document.getElementById('sync-msg').textContent = msg;
+}
+
+async function apiCall(action, payload) {
+  if (!SCRIPT_URL) { alert('Settings에서 Apps Script URL을 먼저 설정하세요.'); return null; }
+  showLoading('처리 중...');
+  try {
+    const res = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action, ...payload })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    return data;
+  } catch(err) {
+    alert('오류: ' + err.message);
+    return null;
+  } finally {
+    hideLoading();
+  }
+}
+
+// ── Page 전환 ────────────────────────────────────────────────────
 let currentPage = 'status';
 let currentFilter = 'all';
 let searchText = '';
+const pages = ['status','history','mgmt','config'];
 
 function switchPage(page) {
   currentPage = page;
@@ -331,53 +414,45 @@ function switchPage(page) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
   document.getElementById('nav-'+page).classList.add('active');
-  ['status','history'].forEach(p => {
-    document.getElementById('nl-'+p).style.color = p===page ? 'var(--accent)' : 'var(--text-hint)';
+  pages.forEach(p => {
+    const el = document.getElementById('nl-'+p);
+    if(el) el.style.color = p===page ? 'var(--accent)' : 'var(--text-hint)';
   });
-  if(page==='status') {
-    document.getElementById('page-title').textContent = '계측기실 대여 현황';
-    document.getElementById('search-input').placeholder = '장비명, 코드, 담당자 검색...';
-  } else {
-    document.getElementById('page-title').textContent = '대여 이력 조회';
-    document.getElementById('search-input').placeholder = '장비명, 담당자, 부서 검색...';
-    initHistoryFilters();
-    renderHistory();
-  }
+  const titles = {status:'계측기실 대여 현황',history:'대여 이력 조회',mgmt:'장비 관리',config:'설정'};
+  document.getElementById('page-title').textContent = titles[page];
+  document.getElementById('search-input').placeholder = page==='status' ? '장비명, 코드, 담당자 검색...' : '검색...';
+  if(page==='history'){ initHistoryFilters(); renderHistory(); }
+  if(page==='mgmt') renderMgmt();
 }
 
 function onSearch() {
   searchText = document.getElementById('search-input').value;
   if(currentPage==='status') renderList();
-  else renderHistory();
+  else if(currentPage==='history') renderHistory();
+  else if(currentPage==='mgmt') renderMgmt();
 }
 
-// ── Status Page ──
+// ── 대여현황 ─────────────────────────────────────────────────────
 function updateStats() {
   document.getElementById('stat-total').textContent = equipments.length;
   document.getElementById('stat-avail').textContent = equipments.filter(e=>e.status==='available').length;
   document.getElementById('stat-borrow').textContent = equipments.filter(e=>e.status!=='available').length;
-  const od = equipments.filter(e=>e.status==='overdue').length;
-  document.getElementById('overdue-banner').style.display = od > 0 ? 'block' : 'none';
+  document.getElementById('overdue-banner').style.display =
+    equipments.some(e=>e.status==='overdue') ? 'block' : 'none';
 }
 
 function statusBadge(e) {
-  const m = {available:['사용 가능','available'],borrowed:['대여 중','borrowed'],overdue:['반납 지연','overdue']};
-  const [l,c] = m[e.status];
+  const m={available:['사용 가능','available'],borrowed:['대여 중','borrowed'],overdue:['반납 지연','overdue']};
+  const [l,c]=m[e.status]||['알 수 없음','available'];
   return `<span class="status-badge ${c}"><span class="status-dot"></span>${l}</span>`;
 }
 
 function dueDays(d) {
   if(!d) return '';
-  const diff = Math.ceil((new Date(d)-today)/86400000);
+  const diff=Math.ceil((new Date(d)-today)/86400000);
   if(diff<0) return `<span style="color:var(--danger);font-weight:600;">${Math.abs(diff)}일 지연</span>`;
   if(diff===0) return `<span style="color:var(--warning);font-weight:600;">오늘 반납</span>`;
   return `<span style="color:var(--text-sub)">D-${diff}</span>`;
-}
-
-function actionBtn(e) {
-  if(e.status==='available') return `<button class="action-btn btn-borrow" onclick="openBorrow(${e.id});event.stopPropagation()">대여하기</button>`;
-  if(e.status==='borrowed') return `<button class="action-btn btn-return" onclick="openReturn(${e.id});event.stopPropagation()">반납하기</button>`;
-  return `<button class="action-btn btn-overdue" onclick="openReturn(${e.id});event.stopPropagation()">즉시 반납</button>`;
 }
 
 function renderList() {
@@ -386,10 +461,7 @@ function renderList() {
     if(['available','borrowed','overdue'].includes(currentFilter)) list=list.filter(e=>e.status===currentFilter);
     else list=list.filter(e=>e.cat===currentFilter||e.name.includes(currentFilter));
   }
-  if(searchText) {
-    const s=searchText.toLowerCase();
-    list=list.filter(e=>e.name.toLowerCase().includes(s)||e.code.toLowerCase().includes(s)||e.borrower.toLowerCase().includes(s)||e.dept.toLowerCase().includes(s));
-  }
+  if(searchText){ const s=searchText.toLowerCase(); list=list.filter(e=>e.name.toLowerCase().includes(s)||e.code.toLowerCase().includes(s)||e.borrower.toLowerCase().includes(s)||e.dept.toLowerCase().includes(s)); }
   document.getElementById('section-count').textContent=`총 ${list.length}개 장비`;
   document.getElementById('eq-list').innerHTML=list.map(e=>`
     <div class="eq-card">
@@ -405,11 +477,13 @@ function renderList() {
         <div class="eq-info-row">
           ${e.status!=='available'
             ?`<div class="eq-info-item">담당자 <span>${e.borrower}</span></div><div class="eq-info-item">부서 <span>${e.dept}</span></div>`
-            :`<div class="eq-info-item">교정일 <span>${e.calDate}</span></div>`}
+            :`<div class="eq-info-item">교정일 <span>${e.calDate||'-'}</span></div>`}
         </div>
-        <div style="display:flex;align-items:center;gap:8px;">
+        <div style="display:flex;align-items:center;gap:6px;">
           ${e.status!=='available'?dueDays(e.dueDate):''}
-          ${actionBtn(e)}
+          ${e.status==='available'?`<button class="action-btn btn-borrow" onclick="openBorrow('${e.id}');event.stopPropagation()">대여하기</button>`:
+            e.status==='borrowed'?`<button class="action-btn btn-return" onclick="openReturn('${e.id}');event.stopPropagation()">반납하기</button>`:
+            `<button class="action-btn btn-overdue" onclick="openReturn('${e.id}');event.stopPropagation()">즉시 반납</button>`}
         </div>
       </div>
     </div>`).join('');
@@ -422,23 +496,45 @@ function setFilter(f,el) {
   renderList();
 }
 
-// ── History Page ──
+// ── 장비관리 ─────────────────────────────────────────────────────
+function renderMgmt() {
+  let list = equipments;
+  if(searchText){ const s=searchText.toLowerCase(); list=list.filter(e=>e.name.toLowerCase().includes(s)||e.code.toLowerCase().includes(s)); }
+  document.getElementById('mgmt-count').textContent = `전체 ${list.length}개 장비`;
+  document.getElementById('mgmt-list').innerHTML = list.map(e=>`
+    <div class="mgmt-card">
+      <div class="mgmt-card-top">
+        <div>
+          <div class="eq-cat">${e.cat}</div>
+          <div class="eq-name">${e.name}</div>
+          <div class="eq-code">${e.code}</div>
+        </div>
+        <div class="mgmt-actions">
+          <button class="mgmt-edit-btn" onclick="openEditEquip('${e.id}')">수정</button>
+          <button class="mgmt-del-btn" onclick="confirmDelete('${e.id}','${e.name}')">삭제</button>
+        </div>
+      </div>
+      <div class="mgmt-row">
+        <div class="mgmt-item">상태 <span>${e.status==='available'?'사용가능':e.status==='borrowed'?'대여중':'지연'}</span></div>
+        <div class="mgmt-item">교정 <span>${e.calDate||'-'}</span></div>
+        ${e.status!=='available'?`<div class="mgmt-item">담당자 <span>${e.borrower} (${e.dept})</span></div>`:''}
+      </div>
+    </div>`).join('');
+}
+
+// ── 이력 ─────────────────────────────────────────────────────────
 function initHistoryFilters() {
   const eqSel=document.getElementById('h-filter-eq');
   const deptSel=document.getElementById('h-filter-dept');
-  if(eqSel.options.length===1) {
-    [...new Set(history.map(h=>h.eqName))].forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;eqSel.appendChild(o);});
-  }
-  if(deptSel.options.length===1) {
-    [...new Set(history.map(h=>h.dept))].forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d;deptSel.appendChild(o);});
-  }
+  if(eqSel.options.length===1){ [...new Set(historyData.map(h=>h.eqName))].forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;eqSel.appendChild(o);}); }
+  if(deptSel.options.length===1){ [...new Set(historyData.map(h=>h.dept))].forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d;deptSel.appendChild(o);}); }
 }
 
 function outcomeInfo(outcome,condition) {
   if(outcome==='borrowed') return ['대여 중','borrowed'];
-  if(outcome==='overdue') return ['지연 미반납','late'];
+  if(outcome==='overdue')  return ['지연 미반납','late'];
   if(condition==='손상'||condition==='수리 필요') return ['손상 반납','damage'];
-  if(outcome==='late') return ['지연 반납','late'];
+  if(outcome==='late')     return ['지연 반납','late'];
   return ['정상 반납','normal'];
 }
 
@@ -447,31 +543,25 @@ function renderHistory() {
   const deptF=document.getElementById('h-filter-dept').value;
   const outF=document.getElementById('h-filter-outcome').value;
   const s=searchText.toLowerCase();
-  let list=[...history].sort((a,b)=>new Date(b.borrowDate)-new Date(a.borrowDate));
+  let list=[...historyData].sort((a,b)=>new Date(b.borrowDate)-new Date(a.borrowDate));
   if(eqF) list=list.filter(h=>h.eqName===eqF);
   if(deptF) list=list.filter(h=>h.dept===deptF);
   if(outF) list=list.filter(h=>outcomeInfo(h.outcome,h.condition)[1]===outF);
-  if(s) list=list.filter(h=>h.eqName.toLowerCase().includes(s)||h.borrower.toLowerCase().includes(s)||h.dept.toLowerCase().includes(s)||h.code.toLowerCase().includes(s));
-
-  document.getElementById('h-total').textContent=history.length;
-  document.getElementById('h-late').textContent=history.filter(h=>outcomeInfo(h.outcome,h.condition)[1]==='late').length;
-  document.getElementById('h-damage').textContent=history.filter(h=>outcomeInfo(h.outcome,h.condition)[1]==='damage').length;
+  if(s) list=list.filter(h=>h.eqName.toLowerCase().includes(s)||h.borrower.toLowerCase().includes(s)||h.dept.toLowerCase().includes(s));
+  document.getElementById('h-total').textContent=historyData.length;
+  document.getElementById('h-late').textContent=historyData.filter(h=>outcomeInfo(h.outcome,h.condition)[1]==='late').length;
+  document.getElementById('h-damage').textContent=historyData.filter(h=>outcomeInfo(h.outcome,h.condition)[1]==='damage').length;
   document.getElementById('hist-count-label').textContent=`조회 결과 ${list.length}건`;
-
   document.getElementById('hist-list').innerHTML=list.map(h=>{
     const [ol,oc]=outcomeInfo(h.outcome,h.condition);
     const active=!h.returnDate;
-    const bor=new Date(h.borrowDate);
-    const ret=h.returnDate?new Date(h.returnDate):null;
+    const bor=new Date(h.borrowDate); const ret=h.returnDate?new Date(h.returnDate):null;
     const days=ret?Math.ceil((ret-bor)/86400000):Math.ceil((today-bor)/86400000);
     const endCls=h.outcome==='late'||h.outcome==='overdue'?'late-end':active?'pending':'end';
     return `
     <div class="hist-card">
       <div class="hist-card-head">
-        <div>
-          <div class="hist-eq-name">${h.eqName}</div>
-          <div class="hist-eq-code">${h.code}</div>
-        </div>
+        <div><div class="hist-eq-name">${h.eqName}</div><div class="hist-eq-code">${h.code}</div></div>
         <span class="hist-outcome ${oc}">${ol}</span>
       </div>
       <div class="hist-rows">
@@ -491,9 +581,9 @@ function renderHistory() {
   }).join('');
 }
 
-// ── Modals ──
+// ── 모달 ─────────────────────────────────────────────────────────
 function openBorrow(id) {
-  const e=equipments.find(x=>x.id===id);
+  const e=equipments.find(x=>String(x.id)===String(id));
   document.getElementById('modal-title').textContent='장비 대여';
   document.getElementById('modal-code').textContent=`${e.code}  ·  ${e.name}`;
   const due=new Date(); due.setDate(due.getDate()+3);
@@ -502,12 +592,19 @@ function openBorrow(id) {
     <div class="modal-field"><label>소속 부서</label><input id="m-dept" type="text" placeholder="부서명 입력"></div>
     <div class="modal-field"><label>반납 예정일</label><input id="m-due" type="date" value="${due.toISOString().split('T')[0]}"></div>`;
   document.getElementById('modal-confirm-btn').textContent='대여 확정';
-  document.getElementById('modal-confirm-btn').onclick=()=>confirmBorrow(id);
+  document.getElementById('modal-confirm-btn').onclick=async()=>{
+    const borrower=document.getElementById('m-borrower').value.trim();
+    const dept=document.getElementById('m-dept').value.trim();
+    const dueDate=document.getElementById('m-due').value;
+    if(!borrower||!dept){alert('대여자 성명과 부서를 입력하세요.');return;}
+    const res=await apiCall('borrow',{id,borrower,dept,dueDate,borrowDate:today.toISOString().split('T')[0]});
+    if(res){closeModal();await loadData();showToast(`✓ ${e.name} 대여 완료`);}
+  };
   document.getElementById('modal').classList.add('show');
 }
 
 function openReturn(id) {
-  const e=equipments.find(x=>x.id===id);
+  const e=equipments.find(x=>String(x.id)===String(id));
   document.getElementById('modal-title').textContent='장비 반납';
   document.getElementById('modal-code').textContent=`${e.code}  ·  ${e.name}`;
   document.getElementById('modal-body').innerHTML=`
@@ -517,12 +614,14 @@ function openReturn(id) {
       <div style="font-size:12px;color:var(--text-sub);margin-top:2px;">반납 예정일: ${e.dueDate}</div>
     </div>
     <div class="modal-field"><label>반납 상태</label>
-      <select id="m-condition">
-        <option value="정상">정상</option><option value="손상">손상 있음</option><option value="수리 필요">수리 필요</option>
-      </select>
+      <select id="m-condition"><option value="정상">정상</option><option value="손상">손상 있음</option><option value="수리 필요">수리 필요</option></select>
     </div>`;
   document.getElementById('modal-confirm-btn').textContent='반납 처리';
-  document.getElementById('modal-confirm-btn').onclick=()=>confirmReturn(id);
+  document.getElementById('modal-confirm-btn').onclick=async()=>{
+    const condition=document.getElementById('m-condition').value;
+    const res=await apiCall('returnEquip',{id,returnDate:today.toISOString().split('T')[0],condition});
+    if(res){closeModal();await loadData();showToast(`✓ ${e.name} 반납 완료`);}
+  };
   document.getElementById('modal').classList.add('show');
 }
 
@@ -531,81 +630,87 @@ function openAddEquip() {
   document.getElementById('modal-code').textContent='새 측정장비 / Gauge 추가';
   document.getElementById('modal-body').innerHTML=`
     <div class="modal-field"><label>장비명</label><input id="m-name" type="text" placeholder="예: 외측 마이크로미터 50-75mm"></div>
-    <div class="modal-field"><label>장비 코드</label><input id="m-code" type="text" placeholder="예: MC-OM-003"></div>
+    <div class="modal-field"><label>장비 코드</label><input id="m-code2" type="text" placeholder="예: MC-OM-003"></div>
     <div class="modal-field"><label>분류</label>
-      <select id="m-cat">
-        <option>Gauge</option><option>버니어 캘리퍼스</option><option>마이크로미터</option><option>기타</option>
-      </select>
+      <select id="m-cat"><option>Gauge</option><option>버니어 캘리퍼스</option><option>마이크로미터</option><option>기타</option></select>
     </div>
-    <div class="modal-field"><label>교정 유효 기간</label><input id="m-cal" type="month"></div>`;
+    <div class="modal-field"><label>교정 유효기간</label><input id="m-cal" type="month"></div>`;
   document.getElementById('modal-confirm-btn').textContent='등록';
-  document.getElementById('modal-confirm-btn').onclick=confirmAdd;
+  document.getElementById('modal-confirm-btn').onclick=async()=>{
+    const name=document.getElementById('m-name').value.trim();
+    const code=document.getElementById('m-code2').value.trim();
+    const cat=document.getElementById('m-cat').value;
+    const calDate=document.getElementById('m-cal').value;
+    if(!name||!code){alert('장비명과 코드를 입력하세요.');return;}
+    const res=await apiCall('addEquip',{name,code,cat,calDate});
+    if(res){closeModal();await loadData();showToast(`✓ ${name} 등록 완료`);}
+  };
   document.getElementById('modal').classList.add('show');
 }
 
-function confirmBorrow(id) {
-  const borrower=document.getElementById('m-borrower').value.trim();
-  const dept=document.getElementById('m-dept').value.trim();
-  const due=document.getElementById('m-due').value;
-  if(!borrower||!dept){alert('대여자 성명과 부서를 입력하세요.');return;}
-  const e=equipments.find(x=>x.id===id);
-  e.status='borrowed';e.borrower=borrower;e.dept=dept;e.dueDate=due;
-  const ts=today.toISOString().split('T')[0];
-  history.push({id:Date.now(),eqId:id,eqName:e.name,code:e.code,borrower,dept,borrowDate:ts,returnDate:null,dueDate:due,outcome:'borrowed',condition:''});
-  saveEq();saveHist();
-  closeModal();updateStats();renderList();
-  showToast(`✓ ${e.name} 대여 완료`);
+function openEditEquip(id) {
+  const e=equipments.find(x=>String(x.id)===String(id));
+  document.getElementById('modal-title').textContent='장비 수정';
+  document.getElementById('modal-code').textContent=e.code;
+  document.getElementById('modal-body').innerHTML=`
+    <div class="modal-field"><label>장비명</label><input id="m-name" type="text" value="${e.name}"></div>
+    <div class="modal-field"><label>장비 코드</label><input id="m-code2" type="text" value="${e.code}"></div>
+    <div class="modal-field"><label>분류</label>
+      <select id="m-cat">
+        <option ${e.cat==='Gauge'?'selected':''}>Gauge</option>
+        <option ${e.cat==='버니어 캘리퍼스'?'selected':''}>버니어 캘리퍼스</option>
+        <option ${e.cat==='마이크로미터'?'selected':''}>마이크로미터</option>
+        <option ${e.cat==='기타'?'selected':''}>기타</option>
+      </select>
+    </div>
+    <div class="modal-field"><label>교정 유효기간</label><input id="m-cal" type="month" value="${e.calDate||''}"></div>`;
+  document.getElementById('modal-confirm-btn').textContent='수정 저장';
+  document.getElementById('modal-confirm-btn').onclick=async()=>{
+    const name=document.getElementById('m-name').value.trim();
+    const code=document.getElementById('m-code2').value.trim();
+    const cat=document.getElementById('m-cat').value;
+    const calDate=document.getElementById('m-cal').value;
+    if(!name||!code){alert('장비명과 코드를 입력하세요.');return;}
+    const res=await apiCall('updateEquip',{id,name,code,cat,calDate});
+    if(res){closeModal();await loadData();showToast(`✓ ${name} 수정 완료`);}
+  };
+  document.getElementById('modal').classList.add('show');
 }
 
-function confirmReturn(id) {
-  const e=equipments.find(x=>x.id===id);
-  const condition=document.getElementById('m-condition').value;
-  const ts=today.toISOString().split('T')[0];
-  const isLate=today>new Date(e.dueDate);
-  const hRec=history.find(h=>h.eqId===id&&!h.returnDate);
-  if(hRec){hRec.returnDate=ts;hRec.outcome=isLate?'late':'normal';hRec.condition=condition;}
-  e.status='available';e.borrower='';e.dept='';e.dueDate='';
-  saveEq();saveHist();
-  closeModal();updateStats();renderList();
-  showToast(`✓ ${e.name} 반납 완료`);
-}
-
-function confirmAdd() {
-  const name=document.getElementById('m-name').value.trim();
-  const code=document.getElementById('m-code').value.trim();
-  const cat=document.getElementById('m-cat').value;
-  const cal=document.getElementById('m-cal').value;
-  if(!name||!code){alert('장비명과 코드를 입력하세요.');return;}
-  const newId=Math.max(...equipments.map(e=>e.id))+1;
-  equipments.push({id:newId,name,code,cat,status:'available',borrower:'',dept:'',dueDate:'',calDate:cal||'미설정'});
-  saveEq();
-  closeModal();updateStats();renderList();
-  showToast(`✓ ${name} 등록 완료`);
+async function confirmDelete(id, name) {
+  if(!confirm(`"${name}"을(를) 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.`)) return;
+  const res=await apiCall('deleteEquip',{id});
+  if(res){await loadData();showToast(`✓ ${name} 삭제 완료`);}
 }
 
 function closeModal(){document.getElementById('modal').classList.remove('show');}
 
-// ── CSV Export ──
+// ── CSV 내보내기 ──────────────────────────────────────────────────
 function exportCSV() {
-  const rows = [['장비명','코드','분류','상태','대여자','부서','반납예정일','교정유효기간']];
-  equipments.forEach(e => rows.push([e.name,e.code,e.cat,e.status==='available'?'사용가능':e.status==='borrowed'?'대여중':'반납지연',e.borrower,e.dept,e.dueDate,e.calDate]));
-  const csv = '\uFEFF' + rows.map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-  a.download = `instrument_lending_${today.toISOString().slice(0,10)}.csv`;
+  const rows=[['장비명','코드','분류','상태','대여자','부서','반납예정일','교정유효기간']];
+  equipments.forEach(e=>rows.push([e.name,e.code,e.cat,e.status==='available'?'사용가능':e.status==='borrowed'?'대여중':'반납지연',e.borrower,e.dept,e.dueDate,e.calDate]));
+  const csv='\uFEFF'+rows.map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=`instrument_lending_${today.toISOString().slice(0,10)}.csv`;
   a.click();
   showToast('✓ CSV 파일 저장 완료');
 }
 
-function showToast(msg) {
+// ── 로딩/토스트 ───────────────────────────────────────────────────
+function showLoading(msg){
+  document.getElementById('loading-text').textContent=msg||'처리 중...';
+  document.getElementById('loading').classList.add('show');
+}
+function hideLoading(){document.getElementById('loading').classList.remove('show');}
+function showToast(msg){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2500);
 }
 
-// ── Init ──
-updateStats();
-renderList();
+// ── 초기화 ───────────────────────────────────────────────────────
+loadData();
 </script>
 </body>
 </html>
