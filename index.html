@@ -447,6 +447,18 @@ function statusBadge(e) {
   return `<span class="status-badge ${c}"><span class="status-dot"></span>${l}</span>`;
 }
 
+function fmtDate(d) {
+  if(!d||d==="미반납") return d||"미반납";
+  const dt = new Date(d);
+  if(isNaN(dt)) return d;
+  return dt.getFullYear() + "년 " + (dt.getMonth()+1) + "월 " + dt.getDate() + "일";
+}
+function fmtDateShort(d) {
+  if(!d) return "";
+  const dt = new Date(d);
+  if(isNaN(dt)) return d;
+  return (dt.getMonth()+1) + "월 " + dt.getDate() + "일";
+}
 function dueDays(d) {
   if(!d) return '';
   const diff=Math.ceil((new Date(d)-today)/86400000);
@@ -566,16 +578,16 @@ function renderHistory() {
       </div>
       <div class="hist-rows">
         <div class="hist-row"><span class="hist-row-label">대여자</span><span class="hist-row-val person">${h.borrower} · ${h.dept}</span></div>
-        <div class="hist-row"><span class="hist-row-label">대여일</span><span class="hist-row-val">${h.borrowDate}</span></div>
-        <div class="hist-row"><span class="hist-row-label">반납 예정일</span><span class="hist-row-val">${h.dueDate}</span></div>
-        <div class="hist-row"><span class="hist-row-label">실제 반납일</span><span class="hist-row-val" style="${active?'color:var(--text-hint)':''}">${h.returnDate||'미반납'}</span></div>
+        <div class="hist-row"><span class="hist-row-label">대여일</span><span class="hist-row-val">${fmtDate(h.borrowDate)}</span></div>
+        <div class="hist-row"><span class="hist-row-label">반납 예정일</span><span class="hist-row-val">${fmtDate(h.dueDate)}</span></div>
+        <div class="hist-row"><span class="hist-row-label">실제 반납일</span><span class="hist-row-val" style="${active?'color:var(--text-hint)':''}">${h.returnDate?fmtDate(h.returnDate):'미반납'}</span></div>
         <div class="hist-row"><span class="hist-row-label">사용 기간</span><span class="hist-row-val">${days}일${active?' (진행 중)':''}</span></div>
         ${h.condition?`<div class="hist-row"><span class="hist-row-label">반납 상태</span><span class="hist-row-val person" style="${h.condition!=='정상'?'color:var(--warning)':''}">${h.condition}</span></div>`:''}
       </div>
       <div class="hist-timeline">
-        <div class="tl-wrap"><div class="tl-dot"></div><div class="tl-label">${h.borrowDate.slice(5)}</div></div>
+        <div class="tl-wrap"><div class="tl-dot"></div><div class="tl-label">${fmtDateShort(h.borrowDate)}</div></div>
         <div class="tl-line"></div>
-        <div class="tl-wrap"><div class="tl-dot ${endCls}"></div><div class="tl-label">${active?'진행중':h.returnDate.slice(5)}</div></div>
+        <div class="tl-wrap"><div class="tl-dot ${endCls}"></div><div class="tl-label">${active?"진행중":fmtDateShort(h.returnDate)}</div></div>
       </div>
     </div>`;
   }).join('');
