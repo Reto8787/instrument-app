@@ -1,4 +1,4 @@
-const CACHE_NAME = 'secompany-instrument-v6';
+const CACHE_NAME = 'secompany-instrument-v7';
 const ASSETS = [
   '/',
   '/index.html',
